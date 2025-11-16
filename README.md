@@ -145,11 +145,20 @@ password: password123
 
 //テスト用データベースの作成
 docker-compose exec mysql bash
+
 mysql -u root -p
+
 //パスワードはrootと入力
 create database test_database;
 
 docker-compose exec php bash
+
+cp .env .env.testing
+
+php artisan key:generate --env=testing
+
+php artisan config:clear
+
 php artisan migrate:fresh --env=testing
 
 php artisan test
