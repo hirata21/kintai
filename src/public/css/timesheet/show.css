@@ -1,0 +1,240 @@
+/* ページ全体 */
+.timesheet-detail {
+    max-width: 900px;
+    margin: 32px auto 80px;
+    background-color: transparent;
+    color: #000;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 見出し（黒バー付き） */
+.page-title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #000;
+    border-left: 8px solid #111;
+    padding-left: 19px;
+    margin-top: 173px;
+    margin-bottom: 91px;
+}
+
+/* カード本体 */
+.detail-card {
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #dadada;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+    overflow: hidden;
+}
+
+/* 行 */
+.detail-row {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    border-top: 1px solid #e5e5e5;
+    background: #fff;
+}
+
+.detail-row:first-child {
+    border-top: none;
+}
+
+/* 左ラベル */
+.label {
+    width: 293px;
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #737373;
+}
+
+/* 右値 */
+.value {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-width: 0;
+    font-size: 16px;
+    color: #000;
+}
+
+.value-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 2.4px;
+    margin-left: 20px;
+}
+
+/* "2023年" と "6月1日" を広めに */
+.value--split {
+    gap: 190px;
+}
+
+/* 備考はフル幅に */
+.value--full {
+    width: 100%;
+}
+
+/* 時刻入力ブロック */
+.time-range-value {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+}
+
+.time-range-start,
+.time-range-end {
+    display: flex;
+    align-items: center;
+}
+
+.time-range-end {
+    margin-left: 70px;
+    gap: 8px;
+}
+
+/* 時刻入力 */
+.time-input {
+    width: 103px;
+    height: 28px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 2.4px;
+    color: #000;
+    padding: 8px 10px;
+}
+
+.time-input:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* 区切り */
+.sep {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    padding: 0 4px;
+    margin-left: 80px;
+}
+
+/* エラー */
+.error {
+    color: #c00;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 4px;
+}
+
+/* 備考 */
+.note-input {
+    width: 100%;
+    min-height: 72px;
+    resize: vertical;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 2.4px;
+    color: #000;
+    padding: 10px 12px;
+}
+
+.note-input:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* 最下部（ボタン/メッセージ） */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px 0;
+    background: #fff;
+}
+
+/* 修正ボタン */
+.btn-submit {
+    width: 130px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 24px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    opacity: .92;
+}
+
+.btn-submit:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* 承認待ちメッセージ */
+.pending-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: 2.7px;
+    color: #FF000080;
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* ========== readonly な入力をテキスト表示にする ========== */
+/* 出勤/退勤・休憩の時刻入力（.time-input） */
+.time-input[readonly] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 10px !important;
+    text-align: center !important;
+    font-weight: 700;
+    color: inherit;
+    cursor: default;
+}
+
+/* テキストエリア（備考）を読み取り表示に */
+.note-input[readonly] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    resize: none !important;
+    font-weight: 700;
+    color: inherit;
+    cursor: default;
+}
+
+/* readonly 状態でフォーカスが当たったときの輪郭を消す */
+.time-input[readonly]:focus,
+.note-input[readonly]:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

@@ -1,0 +1,292 @@
+/* 視覚的に非表示（スクリーンリーダー向け） */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+
+/* ページ全体の背景 */
+.ts-page {
+    background-color: #F0EFF2;
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
+    padding: 40px 16px 80px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Noto Sans JP", sans-serif;
+    color: #111827;
+}
+
+/* 中央カラム */
+.ts-page-inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* タイトル */
+.ts-page-title {
+    width: 100%;
+    max-width: 900px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+    margin: 171px 0 83px;
+    padding-left: 19px;
+    position: relative;
+}
+
+.ts-page-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 8px;
+    height: 1.2em;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+/* カード1: 月切替バー */
+.ts-card-toolbar {
+    width: 900px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    margin-bottom: 106px;
+    display: flex;
+    align-items: center;
+}
+
+.ts-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #111827;
+}
+
+/* 前月/翌月リンク */
+.ts-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 10px;
+    /* 10% だと要素幅依存で歪むので10pxに */
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #737373;
+    transition: opacity .15s ease;
+}
+
+.ts-nav:hover {
+    opacity: .6;
+    text-decoration: underline;
+}
+
+.ts-nav__text {
+    line-height: 1;
+}
+
+.ts-nav__icon {
+    width: 20px;
+    height: 15px;
+    object-fit: contain;
+    display: block;
+    opacity: .3;
+}
+
+.ts-nav__icon--left {
+    transform: none;
+}
+
+.ts-nav__icon--right {
+    transform: scaleX(-1);
+}
+
+/* 現在の年月 */
+.ts-current-month {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #111827;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.ts-current-month__icon-img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    display: block;
+}
+
+.ts-current-month__text {
+    font-size: 20px;
+    line-height: 1.4;
+    color: #000;
+}
+
+/* カード2: 勤怠テーブル */
+.ts-card-table {
+    width: 900px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 0;
+    margin-bottom: 36px;
+    border: none;
+}
+
+/* テーブルラッパ */
+.ts-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+/* テーブル */
+.ts-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 16px;
+    color: #111827;
+    min-width: 600px;
+    background-color: #fff;
+}
+
+/* テーブルヘッダ */
+.ts-table thead th {
+    background-color: #fff;
+    font-weight: 700;
+    text-align: left;
+    font-size: 16px;
+    padding: 12px 16px;
+    border-bottom: 3px solid #E1E1E1;
+    color: #737373;
+    white-space: nowrap;
+}
+
+/* 数値系のヘッダは中央寄せ */
+.ts-col-numhead {
+    text-align: center;
+}
+
+/* 詳細列のヘッダは幅固定気味に */
+.ts-col-detailhead {
+    width: 60px;
+}
+
+/* 各行 */
+.ts-table tbody tr td {
+    padding: 12px 16px;
+    border-bottom: 2px solid #E1E1E1;
+    vertical-align: middle;
+    color: #737373;
+    line-height: 1.4;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.ts-table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* 列ごとのスタイル */
+.ts-col-date {
+    min-width: 120px;
+    /* パディングで広げず列幅で安定化 */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* 休憩(4列目) と 合計(5列目) のデータを左寄せ＋左余白を少し詰める */
+.ts-table tbody td:nth-child(4),
+.ts-table tbody td:nth-child(5) {
+    text-align: left;
+    /* 中央 → 左（.ts-col-num の中央寄せを打ち消す） */
+    padding-left: 16px;
+    /* 16px → 8px */
+    font-variant-numeric: tabular-nums;
+    /* 桁揃え（任意） */
+    -webkit-font-feature-settings: "tnum";
+    font-feature-settings: "tnum";
+}
+
+.ts-col-num {
+    text-align: center;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    min-width: 60px;
+}
+
+.ts-col-detail {
+    text-align: left;
+    min-width: 60px;
+}
+
+/* 詳細リンク（クラスを ts-link に統一） */
+.ts-link {
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.ts-link:hover {
+    text-decoration: underline;
+}
+
+/* 空データ時 */
+.ts-empty {
+    text-align: center;
+    padding: 24px 16px;
+    color: #6B7280;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* CSVボタン */
+.satt-export-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.satt-export-btn {
+    display: inline-block;
+    width: 184px;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 10px 16px;
+    border-radius: 5px;
+}
+
+.satt-export-btn:active {
+    transform: translateY(1px);
+}

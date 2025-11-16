@@ -1,0 +1,225 @@
+/* ===== ページ全体 ===== */
+.ts-approve-page {
+    max-width: 900px;
+    margin: 64px auto 80px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Noto Sans JP", sans-serif;
+    color: #000;
+}
+
+/* ===== 見出し ===== */
+.ts-heading {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #000;
+    border-left: 8px solid #000;
+    padding-left: 19px;
+    margin: 0 0 48px;
+}
+
+/* ===== 白いカード本体 ===== */
+.ts-card {
+    background: #fff;
+    border: 1px solid #dadada;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+    overflow: hidden;
+    /* 角丸内側のはみ出し防止 */
+}
+
+/* ===== 行（ラベル＋値） ===== */
+.ts-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 18px 20px;
+    border-top: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+
+.ts-row:first-child {
+    border-top: none;
+}
+
+.ts-row--last {
+    border-bottom: none;
+}
+
+/* 左ラベル */
+.ts-label {
+    width: 293px;
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #737373;
+    box-sizing: border-box;
+}
+
+/* 右バリュー */
+.ts-value {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #000;
+}
+
+/* 名前右の部署チップ */
+.ts-chip {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #000;
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+/* 強調テキスト */
+.ts-maintext {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    /* 15% */
+    color: #000;
+}
+
+/* 氏名/日付を少し右に */
+.ts-value--shift {
+    margin-left: 24px;
+}
+
+/* "2025年" と "10月3日" の間隔 */
+.ts-value--split {
+    gap: 100px;
+}
+
+/* 備考用（右カラムいっぱい使う） */
+.ts-value--note {
+    width: 100%;
+}
+
+/* 備考ボックス */
+.ts-notebox {
+    width: 100%;
+    min-height: 72px;
+    background: #fff;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.15em;
+    color: #000;
+    padding: 10px 24px;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.ts-notebox--empty {
+    border-style: dashed;
+    border-color: #e5e7eb;
+}
+
+/* ===== 時刻レンジ（Grid化） ===== */
+.ts-range-grid {
+    display: grid;
+    grid-template-columns: 103px 24px 103px;
+    /* start | sep | end */
+    align-items: center;
+    column-gap: 16px;
+}
+
+.ts-range-start,
+.ts-range-end {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* 時刻表示ボックス（読み取り専用） */
+.ts-timebox {
+    display: inline-block;
+    width: 103px;
+    min-height: 28px;
+    text-align: center;
+    border-radius: 4px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    /* 高さと合わせて縦中央揃え */
+    letter-spacing: 0.15em;
+    color: #000;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* 区切り */
+.ts-sep {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ===== 承認ボタン行 ===== */
+.ts-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px 0;
+}
+
+/* 承認ボタン */
+.ts-approve-btn {
+    /* 幅を固定しない */
+    min-width: 150px;
+    /* 目安。22px + 0.12emでも余裕が出る */
+    width: auto;
+    /* 行内中央＆折返し防止 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    height: 50px;
+    /* 縦のパディングは不要（高さ固定＆flexで中央寄せ） */
+    padding: 0 24px;
+    background: #000;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    /* そのままでOK（flexが縦中央にする） */
+    letter-spacing: 0.12em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ts-approve-btn:hover:not([disabled]) {
+    opacity: .92;
+}
+
+.ts-approve-btn:active:not([disabled]) {
+    transform: translateY(1px);
+}
+
+.ts-approve-btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.ts-approve-btn.is-approved {
+    background-color: #696969 !important;
+    color: #fff;
+    opacity: 1;
+    cursor: not-allowed;
+}

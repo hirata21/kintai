@@ -1,0 +1,224 @@
+/* Utility: スクリーンリーダー専用（caption非表示用） */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+
+/* ページ */
+.at-page {
+    background-color: #f4f4f6;
+    min-height: calc(100vh - 80px);
+    padding: 40px 0 80px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 中央カラム */
+.at-inner {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 見出し */
+.at-heading {
+    margin: 129px 0 83px;
+}
+
+.at-heading__text {
+    position: relative;
+    padding-left: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #000;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.at-heading__text::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 8px;
+    height: 1.2em;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+/* 日付切替バー */
+.at-navbar {
+    max-width: 900px;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 106px;
+    font-size: 16px;
+    color: #111827;
+    justify-content: space-between;
+}
+
+/* 前日/翌日 */
+.at-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #737373;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.at-nav__label {
+    line-height: 1;
+}
+
+/* 矢印アイコン（命名を at- に統一） */
+.at-nav__icon {
+    width: 20px;
+    height: 16px;
+    object-fit: contain;
+    display: block;
+    opacity: 0.3;
+}
+
+.at-nav__icon--left {
+    transform: none;
+}
+
+.at-nav__icon--right {
+    transform: scaleX(-1);
+}
+
+/* 中央の年月日 */
+.at-navbar__center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+}
+
+.at-icon-calendar {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    display: block;
+}
+
+.at-date {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+/* テーブルカード */
+.at-tablewrap {
+    background-color: #fff;
+    border: 2px solid #E1E1E1;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+/* テーブル */
+.at-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 16px;
+    color: #111827;
+}
+
+.at-table thead th {
+    color: #737373;
+    background-color: #fff;
+    text-align: left;
+    padding: 12px 16px 12px 16px;
+    font-size: 16px;
+    border-bottom: 3px solid #E1E1E1;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 2.4px;
+}
+
+/* 行ごとの下線は td 側だけに統一（重複回避） */
+.at-table tbody td {
+    padding: 12px 16px 12px 16px;
+    font-size: 16px;
+    color: #737373;
+    vertical-align: middle;
+    word-break: break-word;
+    border-bottom: 2px solid #E1E1E1;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 2.4px;
+}
+
+.at-table tbody td.at-col-name {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 詳細リンク */
+.at-col-detail {
+    white-space: nowrap;
+    width: 60px;
+}
+
+.at-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+}
+
+.at-link:hover {
+    text-decoration: underline;
+}
+
+.at-link--disabled {
+    color: #999;
+    cursor: default;
+    text-decoration: none;
+}
+
+.at-empty {
+    text-align: center;
+    padding: 40px 16px;
+    color: #6b7280;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: normal;
+}

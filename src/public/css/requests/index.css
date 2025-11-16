@@ -1,0 +1,240 @@
+/* ===== トークン ===== */
+:root {
+    --page-bg: #f4f4f6;
+    --ink: #111827;
+    --muted: #737373;
+    --line: #d1d5db;
+
+    --container-max: 1512px;
+    --block-w: 900px;
+
+    --tab-gap: 178px;
+    --heading-bottom: 101px;
+    --tab-leading-offset: 58px;
+    --ls-wide: 2.4px;
+    /* 見出し・表の字間（デザイン準拠）*/
+    --th-status-offset: 12px;
+}
+
+/* アクセシビリティ（スクリーンリーダ専用） */
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===== ページ全体 ===== */
+.rq-page {
+    background-color: var(--page-bg);
+    padding: 40px 0 80px;
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
+    color: var(--ink);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+.rq-inner {
+    max-width: var(--container-max);
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    color: var(--ink);
+}
+
+/* ===== 幅900pxに中央寄せした共通ブロック ===== */
+.rq-block {
+    width: var(--block-w);
+    max-width: var(--block-w);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 狭幅では横幅を100%にしてはみ出し防止 */
+@media (max-width: 920px) {
+
+    .rq-block,
+    .rq-table-wrap {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* ===== 見出し ===== */
+.rq-heading {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--heading-bottom);
+}
+
+.rq-heading__text {
+    position: relative;
+    padding-left: 21px;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    color: var(--ink);
+}
+
+.rq-heading__text::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+/* ===== タブエリア ===== */
+.rq-tabs {
+    display: flex;
+    gap: var(--tab-gap);
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.rq-tab {
+    text-decoration: none;
+    color: #1f2937;
+    line-height: 1.2;
+}
+
+.rq-tab.is-active {
+    font-weight: 600;
+    color: #000;
+}
+
+.rq-tab:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* 先頭タブだけ右へずらす */
+.rq-tabs .rq-tab:first-child {
+    margin-left: var(--tab-leading-offset);
+}
+
+/* タブ下の仕切り線 */
+.rq-divider {
+    width: 100%;
+    border-top: 1px solid #000;
+    margin-bottom: 45px;
+}
+
+/* ===== テーブルラッパ ===== */
+.rq-table-wrap {
+    background-color: #fff;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    overflow-x: auto;
+    width: var(--block-w);
+    max-width: var(--block-w);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ===== テーブル ===== */
+.rq-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 16px;
+    color: #E1E1E1;
+    /* デザインの表テキスト色（ヘッダは別） */
+    line-height: 1;
+    letter-spacing: var(--ls-wide);
+}
+
+.rq-table thead th {
+    background-color: #fff;
+    color: var(--muted);
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 1;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+}
+
+/* テーブルヘッダーの「状態」だけ右にずらす */
+.rq-table thead th.rq-th-status {
+    /* 既定 padding: 12px 16px をベースに左だけ足す */
+    padding-left: calc(16px + var(--th-status-offset));
+}
+
+.rq-th-detail {
+    width: 60px;
+}
+
+/* body rows */
+.rq-table tbody tr {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.rq-table tbody td {
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    font-style: normal;
+    letter-spacing: var(--ls-wide);
+    color: #737373;
+    vertical-align: top;
+    word-break: break-word;
+}
+
+/* 状態セル（テキスト表示用：任意） */
+.rq-status-cell {
+    color: #000;
+    white-space: nowrap;
+}
+
+/* 申請理由カラム（長文を1行省略） */
+.rq-note {
+    max-width: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 詳細リンクセル・リンク */
+.rq-detail-cell {
+    width: 48px;
+    white-space: nowrap;
+}
+
+.rq-detail-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+}
+
+.rq-detail-link:hover {
+    text-decoration: underline;
+}
+
+.rq-detail-link:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* 空状態 */
+.rq-empty {
+    text-align: center;
+    padding: 40px 16px;
+    color: #6b7280;
+    font-size: 14px;
+}

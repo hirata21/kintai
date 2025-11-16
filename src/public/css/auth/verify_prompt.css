@@ -1,0 +1,136 @@
+/* ===== トークン（Figmaの距離を変数化） ===== */
+:root {
+    --wrap-min-h: 100dvh;
+    /* 必要なら calc(100dvh - ヘッダ高) に */
+    --card-max: 720px;
+    --gap-from-top: 120px;
+    /* 画面の最上部から少し下げる */
+    --gap-lead-to-btn: 120px;
+    /* リード -> ボタンの縦間隔（Figma指定） */
+    --gap-btn-to-link: 121px;
+    /* ボタン -> 再送リンクの縦間隔（Figma指定） */
+
+    --btn-minw: 240px;
+    --btn-radius: 8px;
+
+    --lead-fs: 24px;
+    --lead-fw: 700;
+}
+
+/* ===== 画面全体ラッパ ===== */
+.verify-page {
+    min-height: var(--wrap-min-h);
+    background: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: var(--gap-from-top);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* ===== 中身のカード ===== */
+.verify-card {
+    width: 100%;
+    max-width: var(--card-max);
+    padding: 0 16px 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ===== 案内テキスト ===== */
+.verify-lead {
+    margin: 0;
+    /* Figma: 高さ58px想定だが固定しない（折返し耐性） */
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: var(--lead-fs);
+    font-weight: var(--lead-fw);
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #000;
+}
+
+/* ===== ボタン（リードの120px下） ===== */
+.btn-primary {
+    display: inline-flex;
+    /* 中央揃えにしやすい */
+    align-items: center;
+    /* 縦中央 */
+    justify-content: center;
+    /* 横中央 */
+
+    margin-top: var(--gap-lead-to-btn);
+
+    width: 257px;
+    /* 幅を固定 */
+    height: 69px;
+    /* 高さを固定 */
+    box-sizing: border-box;
+    /* 枠線/パディング込みで69pxになる */
+
+    /* パディングは微調整用。高さ固定なので少なめでOK */
+    padding: 8px 16px;
+
+    background: #D9D9D9;
+    border: 1px solid #000;
+    border-radius: var(--btn-radius);
+
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    /* 行高を抑えて中央に寄せる */
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: filter .2s ease, transform .03s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(0.96);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* ===== 再送リンク（ボタンの121px下） ===== */
+.resend-form {
+    margin: var(--gap-btn-to-link) 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.link-like {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    color: #2563eb;
+    text-decoration: underline;
+
+    font: inherit;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.link-like:hover {
+    text-decoration-thickness: 2px;
+}
+
+.link-like:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}

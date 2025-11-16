@@ -1,0 +1,164 @@
+/* スクリーンリーダー専用 */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+
+/* ページ背景とレイアウト */
+.stf-page {
+    background-color: #F0EFF2;
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
+    padding: 64px 24px 80px;
+    display: block;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Noto Sans JP", sans-serif;
+    color: #111827;
+}
+
+/* 見出し */
+.stf-heading {
+    max-width: 900px;
+    margin: 100px auto 140px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.stf-heading__text {
+    position: relative;
+    margin: 0;
+    padding-left: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000;
+}
+
+.stf-heading__text::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 8px;
+    height: 28px;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+/* テーブルカード */
+.stf-table-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: none;
+}
+
+/* テーブル本体 */
+.stf-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #111827;
+    /* 固定高さは撤廃：内容量に応じて伸縮 */
+}
+
+/* テーブルヘッダ */
+.stf-table thead th {
+    background-color: #fff;
+    color: #737373;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    /* = 100% */
+    letter-spacing: 0.15em;
+    /* = 15% */
+    text-align: center;
+    /* 中央寄せに変更 */
+    padding: 12px 16px;
+    border-bottom: 3px solid #E1E1E1;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* ボディセル（共通） */
+.stf-td {
+    background-color: #fff;
+    color: #737373;
+    font-family: 'Inter', sans-serif;
+    /* Inter に統一 */
+    font-style: normal;
+    font-weight: 700;
+    /* Bold */
+    font-size: 16px;
+    line-height: 1;
+    /* = 100% */
+    letter-spacing: 0.15em;
+    /* = 15% */
+    text-align: center;
+    /* 中央寄せに統一（詳細列は別で上書き） */
+    padding: 12px 16px;
+    border-bottom: 2px solid #E1E1E1;
+    vertical-align: middle;
+    word-break: break-word;
+}
+
+.stf-table tbody tr:last-child .stf-td {
+    border-bottom: none !important;
+}
+
+/* 列幅 */
+.stf-th-name,
+.stf-td-name {
+    width: 25%;
+}
+
+.stf-th-email,
+.stf-td-email {
+    width: 50%;
+    overflow-wrap: anywhere;
+}
+
+.stf-th-monthly,
+.stf-td-detail {
+    width: 25%;
+}
+
+
+/* 詳細リンク */
+.stf-detail-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.stf-detail-link:hover {
+    text-decoration: underline;
+}
+
+.stf-detail-link--disabled {
+    color: #9ca3af;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+/* 空データ行 */
+.stf-empty {
+    text-align: center;
+    padding: 24px 16px;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #fff;
+}

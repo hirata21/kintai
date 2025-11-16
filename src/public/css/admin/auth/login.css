@@ -1,0 +1,149 @@
+/* ===== スクリーンリーダー支援（必要に応じて利用） ===== */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+
+/* ===== ページスコープ（他画面への波及を防止） ===== */
+.login-page {
+    --text: #000;
+    --bg: #fff;
+    --muted: #737373;
+    --error: #c62828;
+    --border: #000;
+
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ===== レイアウトラッパ ===== */
+.login-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* ===== タイトル（管理者ログイン） ===== */
+.login-heading {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    margin: 0 0 116px;
+    color: var(--text);
+}
+
+/* ===== フラッシュ ===== */
+.flash {
+    max-width: 680px;
+    margin: 0 auto 24px;
+    padding: 10px 12px;
+    background: #f2f8ff;
+    border: 1px solid #b6daff;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* ===== 各フィールドブロック ===== */
+.form-group {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto 40px;
+    box-sizing: border-box;
+}
+
+/* 指定の余白量（デザイン要件に合わせて） */
+.form-group--email {
+    margin-bottom: 129px;
+}
+
+.form-group--password {
+    margin-bottom: 165px;
+}
+
+/* ===== ラベル ===== */
+.form-label {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 8px;
+}
+
+/* ===== 入力欄 ===== */
+.form-input {
+    display: block;
+    width: 100%;
+    max-width: 680px;
+    height: 60px;
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    padding: 0 12px;
+    font-size: 16px;
+    line-height: 1.4;
+    outline: none;
+}
+
+/* フォーカス可視 */
+.form-input:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 1px;
+}
+
+/* ===== エラーメッセージ ===== */
+.error {
+    color: var(--error);
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin: 6px 0 0;
+}
+
+/* ===== ログインボタン ===== */
+.login-button {
+    display: block;
+    width: 100%;
+    max-width: 670px;
+    height: 60px;
+    margin: 0 auto;
+    background: #000;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    opacity: 0.92;
+}
+
+.login-button:active {
+    transform: translateY(1px);
+}
+
+.login-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}

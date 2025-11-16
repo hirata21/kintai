@@ -1,0 +1,275 @@
+/* =========================
+   ページ全体レイアウト
+   ========================= */
+.timesheet-detail {
+    max-width: 900px;
+    margin: 32px auto 80px;
+    background: transparent;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #000;
+}
+
+/* 見出し */
+.page-title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #000;
+    border-left: 8px solid #111;
+    padding-left: 19px;
+    margin-top: 173px;
+    margin-bottom: 91px;
+}
+
+/* =========================
+   カード
+   ========================= */
+.detail-card {
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #dadada;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+    overflow: hidden;
+    padding-top: 0;
+}
+
+/* 行 */
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 18px 20px;
+    border-top: 1px solid #e5e5e5;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.detail-row:first-child {
+    border-top: none;
+}
+
+.detail-row--last {
+    border-bottom: none;
+}
+
+/* 左カラム: ラベル */
+.label {
+    width: 293px;
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #737373;
+    font-weight: 500;
+    padding-top: 4px;
+    box-sizing: border-box;
+}
+
+/* 右カラム: 値 */
+.value {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    min-width: 0;
+    gap: 8px;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    box-sizing: border-box;
+    padding-left: 20px;
+    /* 全行で開始位置を揃える */
+}
+
+/* 日付: 2025年 / 10月28日 を左右に */
+.value--split {
+    gap: 190px;
+}
+
+/* 備考は縦積み＋右カラムいっぱい */
+.value--full {
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+}
+
+/* 表示用テキスト(氏名/年月日など) */
+.value-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    color: #000;
+    margin-left: 0;
+}
+
+/* =========================
+   時刻並び（Grid化でズレ防止）
+   ========================= */
+.time-range-value {
+    display: grid;
+    grid-template-columns: 103px 24px 103px;
+    /* 開始 | 区切り | 終了 */
+    align-items: center;
+    column-gap: 16px;
+}
+
+.time-range-start,
+.time-range-end {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.sep {
+    text-align: center;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* =========================
+   時刻用 input
+   ========================= */
+.time-input {
+    width: 103px;
+    min-width: 103px;
+    height: 28px;
+    background: #fff;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    color: #000;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.time-input[readonly] {
+    background: #f9fafb;
+    color: #6b7280;
+}
+
+/* 表示専用のラベル（承認待ち時に表示） */
+.readonly-time-label {
+    display: none;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    color: #000;
+}
+
+/* 備考 */
+.note-input {
+    width: 100%;
+    min-width: 316px;
+    height: 72px;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    color: #000;
+    padding: 10px 12px;
+    resize: none;
+    outline: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.note-input[readonly] {
+    background: #f9fafb;
+    color: #6b7280;
+}
+
+/* エラーメッセージ */
+.error-msg {
+    color: #c00;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+/* ボタン行 */
+.actions-outside {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+}
+
+/* 修正ボタン */
+.btn-submit {
+    width: 130px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.btn-submit:disabled,
+.btn-submit[disabled] {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* 承認待ちメッセージ（指定スタイル） */
+.pending-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    /* Extra Bold 相当 */
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    /* 15% */
+    color: #FF000080;
+    margin: 0;
+    padding: 10px 0;
+    text-align: right;
+}
+
+/* =========================
+   is-pending 表示切替
+   ========================= */
+.timesheet-detail.is-pending input.time-input {
+    display: none !important;
+}
+
+.timesheet-detail.is-pending .readonly-time-label {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 103px;
+    min-width: 103px;
+    height: 28px;
+    box-sizing: border-box;
+    background: #f9fafb;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    color: #000;
+    padding: 8px 10px;
+    text-align: center;
+}

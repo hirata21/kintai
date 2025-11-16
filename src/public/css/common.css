@@ -1,0 +1,115 @@
+/* ====== ベース ====== */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+}
+
+/* ====== ヘッダー ====== */
+.header {
+    height: 80px;
+    background: #000;
+    color: #fff;
+    padding-inline: max(24px, calc((100vw - 1512px)/2 + 24px));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.header__logo,
+.header__nav {
+    min-width: 0;
+}
+
+.logo-image {
+    height: 24px;
+    width: auto;
+}
+
+/* 認証系ページではナビ非表示（レイアウトからclass付与） */
+.header--auth .header__nav {
+    display: none;
+}
+
+/* ====== ナビ ====== */
+.header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 1.6vw, 24px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-wrap: nowrap;
+}
+
+.nav__item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+/* 共通のリンク見た目（ボタンにも適用） */
+.nav__link,
+.nav__logout {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(13px, 0.95vw, 14px);
+    line-height: 1;
+    padding: 6px 0;
+    display: inline-block;
+    max-width: 28ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.nav__link:hover,
+.nav__logout:hover {
+    opacity: .85;
+}
+
+.nav__link:focus-visible,
+.nav__logout:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* アクティブ表示 */
+.nav__link.is-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+/* フォームをインラインに（ログアウト） */
+.nav__item form {
+    display: inline;
+    margin: 0;
+}
