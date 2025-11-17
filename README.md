@@ -145,16 +145,28 @@ password: password123
 ## PHPUnit テストについて
 
 //テスト用データベースの作成
+
 docker-compose exec mysql bash
 
 mysql -u root -p
 
 //パスワードはrootと入力
+
 create database test_database;
+
+//.env.testingの作成
 
 docker-compose exec php bash
 
 cp .env .env.testing
+
+APP_ENV=test
+
+DB_DATABASE=test_database
+
+DB_USERNAME=root
+
+DB_PASSWORD=root
 
 php artisan key:generate --env=testing
 
