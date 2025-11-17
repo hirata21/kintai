@@ -35,7 +35,6 @@ class CreateRequestsTable extends Migration
 
             $table->timestamps();
 
-            // よく使う検索条件のためのインデックス
             $table->index(['user_id', 'created_at']);
             $table->index('attendance_id');
         });

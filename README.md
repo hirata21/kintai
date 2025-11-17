@@ -70,8 +70,9 @@ MailHog の画面 (http://localhost:8025) に確認メールが届きます。
 | id                | bigint        | ○           |            | ○        |              |
 | name              | varchar(255)  |             |            | ○        |              |
 | email             | varchar(255)  |             | ○          | ○        |              |
-| email_verified_at | timestamp     |             |            |          |              |
 | password          | varchar(255)  |             |            | ○        |              |
+| email_verified_at | timestamp     |             |            |          |              |
+| role              | enum          |             |            | ○        |              |
 | remember_token    | varchar(100)  |             |            |          |              |
 | created_at        | timestamp     |             |            |          |              |
 | updated_at        | timestamp     |             |            |          |              |

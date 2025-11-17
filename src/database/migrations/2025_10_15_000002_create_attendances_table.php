@@ -33,7 +33,7 @@ class CreateAttendancesTable extends Migration
             $table->enum('status', ['off', 'working', 'on_break', 'clocked_out'])
                 ->default('off');
 
-            // 備考（画面側が max:255 のため string に寄せるのもアリ）
+            // 備考
             $table->string('note', 255)->nullable();
 
             // 1ユーザー1日1レコード
