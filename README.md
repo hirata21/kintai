@@ -40,6 +40,12 @@ php artisan migrate
 
 php artisan db:seed
 
+8.権限（必要なとき）
+
+chown -R www-data:www-data storage bootstrap/cache
+
+chmod -R ug+rwx storage bootstrap/cache
+
 ## メール認証
 
 開発環境では MailHog を使用しています。
