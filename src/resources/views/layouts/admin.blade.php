@@ -41,8 +41,8 @@ $adminHideNav = request()->routeIs([
                         @if($active) aria-current="page" @endif>スタッフ一覧</a>
                 </li>
                 <li class="nav__item">
-                    @php $active = request()->routeIs('admin.requests.*'); @endphp
-                    <a href="{{ route('admin.requests.index') }}"
+                    @php $active = request()->routeIs('requests.*'); @endphp
+                    <a href="{{ route('requests.index') }}"
                         class="nav__link {{ $active ? 'is-active' : '' }}"
                         @if($active) aria-current="page" @endif>申請一覧</a>
                 </li>

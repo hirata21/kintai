@@ -72,7 +72,7 @@ class PendingCountTest extends TestCase
         ]);
 
         // 管理の申請一覧（承認待ちタブ）
-        $response = $this->get(route('admin.requests.index', ['tab' => 'pending']))
+        $response = $this->get(route('requests.index', ['tab' => 'pending']))
             ->assertOk();
 
         $html = $response->getContent();

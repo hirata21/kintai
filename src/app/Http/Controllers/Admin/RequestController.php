@@ -126,7 +126,7 @@ class RequestController extends Controller
             $correction->update(['status' => 'approved']);
         });
 
-        return $this->okResponse($http, '申請を承認しました。', route('admin.requests.index', ['tab' => 'closed']));
+        return $this->okResponse($http, '申請を承認しました。', route('requests.index', ['tab' => 'closed']));
     }
 
     /* =========================

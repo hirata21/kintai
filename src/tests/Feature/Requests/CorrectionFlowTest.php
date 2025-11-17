@@ -15,9 +15,9 @@ class CorrectionFlowTest extends TestCase
 
     // web.php の name に合わせる（あなたのコメントに従って修正済み）
     private const DETAIL_UPDATE     = 'requests.store';
-    private const ADMIN_REQ_INDEX   = 'admin.requests.index';
-    private const ADMIN_REQ_SHOW    = 'admin.requests.approve.form';
-    private const ADMIN_REQ_APPROVE = 'admin.requests.approve';
+    private const ADMIN_REQ_INDEX   = 'requests.index';
+    private const ADMIN_REQ_SHOW    = 'requests.approve.form';
+    private const ADMIN_REQ_APPROVE = 'requests.approve';
 
     /** @test */
     public function 申請作成で承認待ちに出て承認後は承認済みへ移る(): void

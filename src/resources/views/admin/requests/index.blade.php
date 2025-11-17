@@ -16,8 +16,8 @@ $isPendingTab = $tab === 'pending';
 $isClosedTab = ($tab === 'closed' || $tab === 'approved');
 
 // タブのルートは既存前提
-$pendingUrl = route('admin.requests.index', ['tab' => 'pending']);
-$closedUrl = route('admin.requests.index', ['tab' => 'closed']);
+$pendingUrl = route('requests.index', ['tab' => 'pending']);
+$closedUrl = route('requests.index', ['tab' => 'closed']);
 @endphp
 
 <div class="rq-page">
@@ -105,9 +105,7 @@ $closedUrl = route('admin.requests.index', ['tab' => 'closed']);
                     }
 
                     // 詳細URL（存在すればリンク、なければ無効表示）
-                    $detailUrl = \Illuminate\Support\Facades\Route::has('admin.requests.approve.form')
-                    ? route('admin.requests.approve.form', $r->id)
-                    : null;
+                    $detailUrl = route('requests.approve.form', $r->id);
                     @endphp
                     <tr>
                         <td data-label="状態">{{ $statusLabel }}</td>

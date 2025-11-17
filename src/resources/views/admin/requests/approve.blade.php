@@ -176,7 +176,7 @@ $isApproved = ($correction->status === 'approved');
     {{-- 承認ボタン：data-ajax が true のときだけ非同期 --}}
     <form id="approveForm"
         method="POST"
-        action="{{ route('admin.requests.approve', $correction->id) }}"
+        action="{{ route('requests.approve', $correction->id) }}"
         class="ts-actions"
         data-ajax="true">
         @csrf
